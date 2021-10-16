@@ -1,0 +1,71 @@
+# include <stdio.h>
+void triangle (int a);
+int choose(int n, int r);
+int factorial(int n);
+void gap(int n);
+
+int main (void)
+{
+int rows; 
+int i=1;
+while (i==1)
+{
+printf ("Enter the number of rows: ");
+scanf("%d",&rows);
+if (rows<0)
+{
+i=0;
+break;
+}
+else if(rows<=13)
+{
+ triangle (rows);
+i=1;
+}
+else 
+break;
+}
+return 0;
+}
+
+void triangle (int a)
+{
+	int z=3*(a-1);
+for (int t=1;t<=a;t++)
+{
+   gap(3*(a-t));
+    	for (int u=1;u<=t;u++){   
+    int choice= choose(t-1, u-1);
+    printf("%-3d",choice);
+    gap(3);
+
+    } 
+   printf("\n");
+    z=z-3;
+     
+    }
+    }
+
+
+
+
+int factorial (int n)
+{
+int factorial= 1; 
+for(int q=1;q<=n;q++)
+{
+factorial=factorial*q;
+}
+return factorial;
+}
+int choose(int n, int r)
+{
+return (factorial(n) / (factorial(r) * factorial(n-r)));
+}
+void gap(int n)
+{
+for(int q=1;q<=n;q++)
+{
+printf(" ");
+}
+}
